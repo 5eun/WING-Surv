@@ -59,7 +59,7 @@ $$b_f$$ : $$f$$번째 채널의 편향
 
 $$\mathrm{ReLU}(x) = \max(0, x)$$
 
-ReLU 활성화 함수
+ReLU 활성화 함수  
 
 #
 
@@ -68,16 +68,16 @@ $$y_{i,j} =
 \sum_{u=1}^{k}\sum_{v=1}^{k}
 x_{k i + u, k j + v}$$
 
-Avgerage Pooling Layer 수식
-$$k$$ : 커널 사이즈(2)
+Avgerage Pooling Layer 수식  
+$$k$$ : 커널 사이즈(2)  
 
 #
 
 $$z = Wx + b$$
 
-Fully Connected Layer 수식
-$$W$$ : 가중치
-$$b$$ : 편향
+Fully Connected Layer 수식  
+$$W$$ : 가중치  
+$$b$$ : 편향  
 
 #
 
@@ -85,14 +85,14 @@ $$p_i =
 \frac{e^{z_i}}
 {\sum_{j=1}^{C} e^{z_j}}$$
 
-Softmax 수식
+Softmax 수식  
 
 #
 
 ### Train (backpropagation)
 손실은 Cross Entropy Loss 사용  
 
-**Cross Entropy Loss**\
 $$L = - \log(p_y)$$
 
-$$p_y$$는 정답 클래스 y에 대한 확률
+Cross Entropy Loss 수식  
+$$p_y$$ : 정답 클래스 y에 대한 예측  
