@@ -190,4 +190,28 @@ $$\frac{\partial L}{\partial W} = (\frac{\partial L}{\partial z}) x^T$$
 
 이 된다. (shape도 (C, D)로 동일해짐)  
 
+$$z = Wx + b$$
 
+$$\frac{\partial z}{\partial b} = 1$$
+
+$$\frac{\partial L}{\partial b} = \frac{\partial L}{\partial z}$$
+
+이 된다. (shape도 (C))
+
+$$z_i = \sum_{j=1}^D W_{ij}x_j + b_i$$
+
+$$\frac{\partial z_i}{\partial x_j} = W_{ij}$$
+
+$$\frac{\partial L}{\partial x_j} = \sum_i \frac{\partial L}{\partial z_i} \frac{\partial z_i}{\partial x_j} = \sum_i \frac{\partial L}{\partial z_i} W_{ij}$$
+
+$$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} W^T$$
+
+이 된다. (shape는 (D))
+
+결국 얻어야 했던 것들을 모두 계산했다.
+
+$$\frac{\partial L}{\partial W} = (\frac{\partial L}{\partial z}) x^T$$
+
+$$\frac{\partial L}{\partial b} = \frac{\partial L}{\partial z}$$
+
+$$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} W^T$$
