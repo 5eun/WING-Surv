@@ -99,7 +99,7 @@ $$p_y$$ : 정답 클래스 y에 대한 예측
 
 #
 
-$$\frac{\partial L}{\partial W}=\frac{\partial L}{\partial z}\;
+$$\frac{\partial L}{\partial W}=\frac{\partial L}{\partial z}\
 x^T$$
 
 fc layer backward  
