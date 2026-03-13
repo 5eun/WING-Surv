@@ -112,4 +112,4 @@ $$y_i$$ : y가 정답 클래스면 1, 아니면 0
 
 fc를 역전파하기 위해  
 
-$$ \partial B/ \partial A
+$$\partial B/ \partial A$$
