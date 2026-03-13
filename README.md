@@ -43,7 +43,6 @@ total 44,426 paramerters
 
 ### Forward propagation
 **Convolution Layer**
-
 $$y_{f,i,j} = \sum_{c=1}^{C} \sum_{u=1}^{k} \sum_{v=1}^{k}
 w_{f,c,u,v} \cdot x_{c,i+u-1,j+v-1} + b_f$$
 
