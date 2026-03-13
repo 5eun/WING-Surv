@@ -110,10 +110,12 @@ $$y_i$$ : y가 정답 클래스면 1, 아니면 0
 
 #
 
-fc를 역전파하기 위해  
+Prob -> Softmax -> fc 역전파
 
 $$\frac{\partial L}{\partial z_j} = \sum \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
 
 $$\frac{\partial L}{\partial p_i} = -\frac{y_i}{p_i}$$
 
 $$\frac{\partial p_i}{\partial z_j} = \frac{(e^{z_i})'\sum e^{z_j} - e^{z_i} (\sum e^{z_j})'}{(\sum e^{z_j})^2}$$
+
+$$z_j$$에 대해 미분하는 과정이기에 $$z_i (i != j)$$는 상수 취급된다.
