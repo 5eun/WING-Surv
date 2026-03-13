@@ -119,7 +119,7 @@ $$\frac{\partial L}{\partial p_i} = -\frac{y_i}{p_i}$$
 $$\frac{\partial p_i}{\partial z_j} = \frac{(e^{z_i})'\sum e^{z_j} - e^{z_i} (\sum e^{z_j})'}{(\sum e^{z_j})^2}$$
 
 $$z_j$$에 대해 미분하는 과정이기에 $$z_i (i \neq j)$$는 다른 변수이기에 미분할 시 0이 된다.  
-이를 기호로 표현한 게 크로네커 델타(Kronecker delta, $$\delta_ij$$)라고 한다.  
+이를 기호로 표현한 게 크로네커 델타(Kronecker delta, $$\delta_{ij}$$)라고 한다.  
 
 $$
 \delta_{ij} =
@@ -131,10 +131,10 @@ $$
 
 따라서 앞서 몫 미분으로 표현한 식을 계산하기 위해 분자, 분모를 각각 미분하면,
 
-$$\frac{\partial}{\partial z_j}e^{z_i} = \delta_ij e^{z_i}$$
+$$\frac{\partial}{\partial z_j}e^{z_i} = \delta_{ij} e^{z_i}$$
 
 $$\frac{\partial \sum e^{z_j}}{\partial z_j} = e^{z_j}$$
 
 이에 따라
 
-$$\frac{\partial p_i}{\partial z_j} = \frac{(\delta_ij e^{z_i})\sum e^{z_j} - e^{z_i}e^{z_j}}{(\sum e^{z_j})^2}$$
+$$\frac{\partial p_i}{\partial z_j} = \frac{(\delta_{ij} e^{z_i})\sum e^{z_j} - e^{z_i}e^{z_j}}{(\sum e^{z_j})^2}$$
