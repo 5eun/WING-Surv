@@ -46,3 +46,5 @@ total 44,426 paramerters
 
 **Cross Entropy Loss**\
 $$L = - \log(p_y)$$
+
+$$p_y$$는 정답 클래스 y에 대한 확률
