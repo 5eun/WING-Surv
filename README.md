@@ -112,4 +112,8 @@ $$y_i$$ : y가 정답 클래스면 1, 아니면 0
 
 fc를 역전파하기 위해  
 
-$$\frac{\partial L}{\partial z_j} = \sum_i \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
+$$\frac{\partial L}{\partial z_j} = \sum \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
+
+$$\frac{\partial L}{\partial p_i} = -\frac{y_i}{p_i}$$
+
+$$\frac{\partial p_i}{\partial z_j} = \frac{(e^z_i)'\sum e^z_j - e^z_i (\sum e^z_j)'}{(\sum e^z_j)^2}
