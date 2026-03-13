@@ -9,15 +9,18 @@ Source : Kaggle의 mnist-in-csv 사용 (https://www.kaggle.com/datasets/oddratio
 ### Structure
 LeNet-5 구조 모방  
 
-Convolution (5, 5, 6 = 필터 개수) -> ReLU  
-AvgPooling (2, 2)  
-Convolution (5, 5, 16) -> ReLU  
-AvgPooling (2, 2)  
+Convolution (5x5, 6 = 필터 개수) -> ReLU  
+AvgPooling (2x2)  
+Convolution (5x5, 16) -> ReLU  
+AvgPooling (2x2)  
 fc (120) -> ReLU  
 fc (84) -> ReLU  
 fc (10) -> ReLU  
+Softmax  
+
 
 이미지 shape 변화  
+
 (1, 28, 28)  
 (6, 24, 24)  
 (6, 12, 12)  
@@ -26,3 +29,10 @@ fc (10) -> ReLU
 (120)  
 (84)  
 (10)  
+
+weights 44,190  
+bias 236  
+total 44,426 paramerters  
+
+### Train (backpropagation)
+손실은 Cross Entropy Loss 사용
