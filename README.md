@@ -110,9 +110,9 @@ $$y_i$$ : y가 정답 클래스면 1, 아니면 0
 
 #
 
-Prob -> Softmax -> fc 역전파
+#### Prob -> Softmax 역전파
 
-$$\frac{\partial L}{\partial z_j} = \sum \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
+$$\frac{\partial L}{\partial z_j} = \sum_i \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
 
 $$\frac{\partial L}{\partial p_i} = -\frac{y_i}{p_i}$$
 
@@ -144,3 +144,50 @@ $$\frac{\delta_{ij}e^{z_i}}{\sum e^{z_j}} = p_i delta_{ij}$$
 $$\frac{e^{z_i}e^{z_j}}{(\sum e^{z_j})^2} = p_i p_j$$
 
 $$\frac{\partial p_i}{\partial z_j} = p_i \delta_{ij} - p_i p_j$$
+
+$$\frac{\partial L}{\partial z_j} = \sum_i \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j} = \sum_i (-\frac{y_i}{p_i})(p_i \delta_{ij} - p_i p_j)$$ = -y_j + \sum_i y_i p_j = p_j - y_j$$
+
+$$\frac{\partial L}{\partial z_j} = p_j - y_j = p_j - 1$$
+
+즉, prob 값에서 softmax 이전(fc10 이후)으로 역전파하면 정답 클래스의 prob값에서 1을 빼면 된다.  
+이 부분이 utils.py의 class Softmax 하위의 backward 함수에 구현되어있다.  
+
+
+#### Softmax -> fc 역전파
+
+fc layer의 수식 :
+
+$$z = Wx + b$$
+
+여기서 업데이트해야 하는 값은 $$W$$와 $$b$$,  
+각 변수의 shape :  
+$$x$$ : (D)  
+$$W$$ : (C, D)  
+$$b$$ : (C)  
+$$z$$ : (C)  
+
+D = 입력 feature 수, C = 출력 feature 수
+
+$$z_i = \sum_{j=1}^D W_{ij}x_j + b_i$$
+
+가 된다. 또한 마지막에 얻어야 하는 값들은  
+
+$$\frac{\partial L}{\partial W}$$
+
+$$\frac{\partial L}{\partial b}$$
+
+$$\frac{\partial L}{\partial x}$$
+
+이고  
+
+$$\frac{\partial L}{\partial z_i} \frac{\partial z_i}{\partial W_{ij}} = \frac{\partial L}{\partial W_{ij}}$$
+
+$$\frac{\partial z_i}{\partial W_{ij}} = x_j$$
+
+$$\frac{\partial L}{\partial W_{ij}} = \frac{\partial L}{\partial z_i} \frac{\partial z_i}{\partial W_{ij}} = \frac{\partial L}{\partial z_i} x_j$$
+
+$$\frac{\partial L}{\partial W} = (\frac{\partial L}{\partial z}) x^T$$
+
+이 된다. (shape도 (C, D)로 동일해짐)  
+
+
