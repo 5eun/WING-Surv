@@ -9,7 +9,7 @@
 ### Structure
 - LeNet-5 구조 모방  
 
-- Convolution (5, 5, 6)  
+- Convolution (5, 5, 6)
 - AvgPooling (2, 2)  
 - Convolution (5, 5, 16)  
 - AvgPooling (2, 2)  
