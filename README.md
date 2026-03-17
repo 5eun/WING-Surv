@@ -284,6 +284,6 @@ input gradient는 이전 레이어의 역전파에 활용된다.
 
 경사하강법은 기존 파라미터에서 그 파라미터에 대응되는 gradient에 learning rate(학습률)을 곱한 값을 빼서 파라미터를 업데이트한다.  
 
-기하적으로 보면 Loss함수에 대한 기울기 : $$\frac{\partial L}{\partial b or w}$$  
+기하적으로 보면 Loss함수에 대한 기울기 : $$\frac{\partial L}{\partial b}, \frac{\partial L}{\partial w}$$  
 에 lr이라는 작은 값을 곱해 빼주어 Loss함수값이 작아지는 방향으로 파라미터를 업데이트하는 원리이다.
 
