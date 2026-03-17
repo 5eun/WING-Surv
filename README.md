@@ -110,7 +110,7 @@ $$y_i$$ : y가 정답 클래스면 1, 아니면 0
 
 #
 
-#### Prob -> Softmax 역전파
+#### Softmax 역전파
 
 $$\frac{\partial L}{\partial z_j} = \sum_i \frac{\partial L}{\partial p_i} \frac{\partial p_i}{\partial z_j}$$
 
@@ -153,7 +153,7 @@ $$\frac{\partial L}{\partial z_j} = p_j - y_j = p_j - 1$$
 이 부분이 utils.py의 class Softmax 하위의 backward 함수에 구현되어있다.  
 
 
-#### Softmax -> fc 역전파
+#### fc 역전파
 
 fc layer의 수식 :
 
@@ -219,8 +219,13 @@ $$\frac{\partial L}{\partial x} = \frac{\partial L}{\partial z} W^T$$
 여기서 $$\frac{\partial L}{\partial x}$$는 이전 레이어로 전달되고  
 $$\frac{\partial L}{\partial W}$$와 $$\frac{\partial L}{\partial b}$$는 optimizer가 파라미터를 업데이트 할 때 쓰인다.
 
-### fc -> AvgPool 역전파
+### AvgPool 역전파
 
 AvgPooling Layer은 단순 다운샘플링 레이어이기 때문에  
 gradient($$\frac{\partial L}{\partial y}$$)를 동등하게 분배하여 역전파한다. ($$y=\frac{\sum_{i=1}^N x_i}{N}$$)
 
+### Convolutional layer 역전파
+
+Conv layer의 수식 :  
+
+$$y_{f,i,j}=\sum_{c=1}^C \sum_{u=1}^k \sum_{v=1}^k w_{f,c,u,v} \cdot x_{c,i+u-1,j+v-1} + b_f$$ 
